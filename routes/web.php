@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/friendrequests/{user}', 'FriendrequestsController@destroy');
     Route::post('/posts', 'PostController@store');
     Route::get('/profiles/{user}', 'ProfileController@show');
+    Route::put('/profiles/{user}', 'ProfileController@update');
+    Route::get('/profiles/{user}/edit', 'ProfileController@edit');
     Route::get('/addfriends', 'AddFriendsControler@index');
     Route::post('/addfriend/{user}', 'AddFriendsControler@store');
     Route::get('/addfriend/pendings', 'AddFriendsControler@create');

@@ -4,6 +4,11 @@
             <img src="/images/cover.jfif" class=" " width="100%" alt="" srcset="">
             <img src="{{$user->avatar}}" class="position-absolute rounded rounded-circle"
                 style="left:calc(2%); bottom:3%" width="20%" alt="" srcset="">
+            <a href="/profiles/{{auth()->id()}}/edit" class="btn btn-light btn-sm position-absolute"
+                style="left:calc(70%); bottom:3%">
+                Update info
+            </a>
+            {{-- @include('profiles.edit') --}}
         </div>
         @can('view', $user)
         @if (auth()->user()->sendpendingfriendrequest($user))
@@ -28,8 +33,7 @@
                     @can('update',$user)
 
                     @include('create-post-card')
-                    {{-- @endif --}}
-
+                    <!-- Modal -->
                     @endcan
                 </div>
                 <div>

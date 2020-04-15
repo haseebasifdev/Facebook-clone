@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'avatar',
     ];
 
     /**
@@ -36,11 +36,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function getAvatarAttribute()
-    {
-        return 'https://i.pravatar.cc/200?u=' . $this->email;
-    }
+    // public function getAvatarAttribute()
+    // {
+    //     return 'https://i.pravatar.cc/200?u=' . $this->email;
+    // }
 
+    public function getAvatarAttribute($value)
+    {
+        if ($value) {
+            return (asset('storage/' . $value));
+        } else {
+            return (asset('/images/download.png'));
+        }
+        dd(asset('storage/' . $value ? 'storage/' . $value  : '/images/download.png'));
+    }
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
     public function posts()
     {
         return $this->hasMany(Post::class)->latest();
@@ -89,10 +102,10 @@ class User extends Authenticatable
     }
     public function deleteSendPendingFriendRequest(User $user)
     {
-        return $this->hasMany('App\Friendrequests', 'sender_user_id')->where('reciever_user_id',$user->id)->delete();;
+        return $this->hasMany('App\Friendrequests', 'sender_user_id')->where('reciever_user_id', $user->id)->delete();;
     }
     public function deleteRecievePendingFriendRequest(User $user)
     {
-        return $this->hasMany('App\Friendrequests', 'reciever_user_id')->where('sender_user_id',$user->id)->delete();;
+        return $this->hasMany('App\Friendrequests', 'reciever_user_id')->where('sender_user_id', $user->id)->delete();;
     }
 }

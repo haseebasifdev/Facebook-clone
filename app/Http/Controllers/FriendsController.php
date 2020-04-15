@@ -29,6 +29,7 @@ class FriendsController extends Controller
     {
         if (auth()->user()->hasFriends($user)) {
             auth()->user()->unfriend($user);
+            $user->unfriend(auth()->user());
         } else {
 
             auth()->user()->deleteRecievePendingFriendRequest($user);
