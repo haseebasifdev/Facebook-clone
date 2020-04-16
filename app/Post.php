@@ -17,11 +17,15 @@ class Post extends Model
     }
     public function likes()
     {
-        return $this->hasMany(Likes::class)->count();
+        return $this->hasMany(Likes::class);
+    }
+    public function liked()
+    {
+        return $this->hasMany(Likes::class)->where('user_id', auth()->id())->exists();
     }
     public function comments()
     {
-        return $this->hasMany(Comments::class)->count();
+        return $this->hasMany(Comments::class);
     }
     // public function like()
     // {

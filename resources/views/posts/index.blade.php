@@ -24,12 +24,12 @@
 
             <div class=" card-body ">
                 <div class="row  justify-content-between border-top ">
-                    <div class=" col-md-6 mt-3">
+                    <div class=" col-md-6 mt-3 ">
                         <form action="/likes/{{$post->id}}" method="post">
                             @csrf
-                            <button class="btn btn-light btn-block  text-dark "><i
-                                    class="far fa-thumbs-up mr-1"></i>like
-                                <span>{{$post->likes()}}</span> </button>
+                            <button class="btn btn-light btn-block{{$post->liked() ? ' text-primary' : '' }} "><i
+                                    class="far fa-thumbs-up mr-1 "></i>like
+                                <span>{{$post->likes()->count()}}</span> </button>
                         </form>
                     </div>
                     <div class=" col-md-6 mt-3">
@@ -37,7 +37,7 @@
                             @csrf
                             <button class="btn btn-light btn-block  text-dark "><i
                                     class="far fa-comment-alt mr-1"></i>Comment
-                                <span>{{$post->comments()}}</span></button>
+                                <span>{{$post->comments()->count()}}</span></button>
                         </form>
                     </div>
 
