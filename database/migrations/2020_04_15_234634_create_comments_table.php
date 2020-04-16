@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->foreignId('post_id');
             $table->foreignId('user_id');
+            $table->text('body');
             $table->foreign('post_id')
                 ->references('id')
                 ->on('posts')

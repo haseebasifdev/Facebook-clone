@@ -124,11 +124,7 @@
         ul.link {
             margin-left: 10%;
         } */
-        div.bar {
-
-            width: 100%;
-            height: 5%;
-        }
+        
     </style>
 </head>
 
