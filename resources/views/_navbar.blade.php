@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary justify-content-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary justify-content-center fixed-top">
 
     <div class="row">
 

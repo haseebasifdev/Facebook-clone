@@ -2,12 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Comments;
+use App\Likes;
 use App\User;
 use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function likes()
+    {
+        return $this->hasMany(Likes::class);
+        
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comments::class);
+        
+    }
     public function index()
     {
         // $id = auth()->user()->id;

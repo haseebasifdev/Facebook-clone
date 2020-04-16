@@ -17,22 +17,35 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::middleware('auth')->group(function () {
-
-    Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/posts', 'PostController@index');
-    Route::get('/friendrequests', 'FriendrequestsController@index');
-    Route::post('/friendrequests/{user}', 'FriendrequestsController@create');
-    Route::delete('/friendrequests/{user}', 'FriendrequestsController@destroy');
-    Route::post('/posts', 'PostController@store');
+    // Profiles Controller
     Route::get('/profiles/{user}', 'ProfileController@show');
     Route::put('/profiles/{user}', 'ProfileController@update');
     Route::get('/profiles/{user}/edit', 'ProfileController@edit');
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    //Post Controler
+    Route::get('/posts', 'PostController@index');
+    Route::post('/posts', 'PostController@store');
+
+    //friends Request Controller
+    Route::get('/friendrequests', 'FriendrequestsController@index');
+    Route::post('/friendrequests/{user}', 'FriendrequestsController@create');
+    Route::delete('/friendrequests/{user}', 'FriendrequestsController@destroy');
+
+    //AddFriends Controller
     Route::get('/addfriends', 'AddFriendsControler@index');
     Route::post('/addfriend/{user}', 'AddFriendsControler@store');
     Route::get('/addfriend/pendings', 'AddFriendsControler@create');
     Route::put('/addfriend/{user}', 'AddFriendsControler@update');
+
+    //Friends Controller
     Route::put('/friends/{user}', 'FriendsController@store');
     Route::delete('/friends/{user}', 'FriendsController@destroy');
     Route::delete('/addfriend/{user}', 'AddFriendsControler@delete');
+
+    // Likes Controller
+
+    Route::post('/likes/{post}', 'LikesController@store');
 });
 Auth::routes();
