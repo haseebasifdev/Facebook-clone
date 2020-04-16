@@ -47,5 +47,9 @@ Route::middleware('auth')->group(function () {
     // Likes Controller
 
     Route::post('/likes/{post}', 'LikesController@store');
+
+    // Comments Controller
+
+    Route::post('/comments/{post}', 'CommentsController@store');
 });
 Auth::routes();

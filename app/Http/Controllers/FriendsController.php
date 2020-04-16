@@ -28,6 +28,7 @@ class FriendsController extends Controller
     public function destroy(User $user)
     {
         if (auth()->user()->hasFriends($user)) {
+            // dd('Delete friend');
             auth()->user()->unfriend($user);
             $user->unfriend(auth()->user());
         } else {

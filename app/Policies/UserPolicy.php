@@ -31,7 +31,7 @@ class UserPolicy
     {
         return $user->id !== $model->id;
     }
-
+    
     /**
      * Determine whether the user can create models.
      *

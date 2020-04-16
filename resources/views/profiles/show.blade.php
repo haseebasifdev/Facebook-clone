@@ -1,28 +1,45 @@
 <x-profileshow class="">
-    <div class="show">
+    <div class="show ">
         <div class=" position-relative mb-4">
             <img src="/images/cover.jfif" class=" " width="100%" alt="" srcset="">
             <img src="{{$user->avatar}}" class="position-absolute rounded rounded-circle"
                 style="left:calc(2%); bottom:3%" width="20%" alt="" srcset="">
+            @can('update', $user)
             <a href="/profiles/{{auth()->id()}}/edit" class="btn btn-light btn-sm position-absolute"
                 style="left:calc(70%); bottom:3%">
                 Update info
             </a>
+            @endcan
+            @can('view', $user)
+            @if (auth()->user()->sendpendingfriendrequest($user))
+            <div>
+                @include('_pending-friend-button')
+            </div>
+            @else
+            @if (auth()->user()->hasfriends($user))
+            @include('_unfriend-button')
+            @else
+            @include('_add-friend-button')
+            @endif
+            @endif
+            @endcan
             {{-- @include('profiles.edit') --}}
         </div>
-        @can('view', $user)
-        @if (auth()->user()->sendpendingfriendrequest($user))
         <div>
-            @include('_pending-friend-button')
+            {{-- @can('view', $user)
+            @if (auth()->user()->sendpendingfriendrequest($user))
+            <div>
+                @include('_pending-friend-button')
+            </div>
+            @else
+            @if (auth()->user()->hasfriends($user))
+            @include('_unfriend-button')
+            @else
+            @include('_add-friend-button')
+            @endif
+            @endif
+            @endcan --}}
         </div>
-        @else
-        @if (auth()->user()->hasfriends($user))
-        @include('_unfriend-button')
-        @else
-        @include('_add-friend-button')
-        @endif
-        @endif
-        @endcan
         <div class="row">
             <div class=" col-md-4 col-sm-5 col-6">
 
