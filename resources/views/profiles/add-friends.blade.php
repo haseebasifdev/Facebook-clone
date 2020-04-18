@@ -14,10 +14,12 @@
             </div>
             @if (auth()->user()->sendpendingfriendrequest($user))
             <div>
-            @include('_pending-friend-button')
+                @include('_pending-friend-button')
             </div>
             @else
-            @include('_add-friend-button')
+            <div>
+                @include('_add-friend-button')
+            </div>
             @endif
         </li>
         @endif

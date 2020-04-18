@@ -111,7 +111,10 @@ class User extends Authenticatable
     }
     public function notifications()
     {
-        return $this->hasMany(Notification::class, 'to_user_id');
+        return $this->hasMany(Notification::class, 'to_user_id')->latest();
     }
-   
+    public function newNotifications()
+    {
+        return $this->hasMany(Notification::class, 'to_user_id')->where('open', false);
+    }
 }

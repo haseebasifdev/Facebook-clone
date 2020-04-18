@@ -56,5 +56,6 @@ Route::middleware('auth')->group(function () {
     // Notification Controller
 
     Route::get('/notificatios', 'NotificationController@index');
+    Route::get('/notificatios/{note}/post', 'NotificationController@show');
 });
 Auth::routes();

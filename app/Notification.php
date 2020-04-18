@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notification extends Model
 {
+    protected $guarded = [];
     public function notifyUser()
     {
         // $user = User::where('id', $this->from_User_id)->latest();

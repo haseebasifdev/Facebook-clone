@@ -19,6 +19,7 @@ class CreateNotificationsTable extends Migration
             $table->foreignId('from_User_id');
             $table->foreignId('post_id');
             $table->string('type');
+            $table->boolean('open')->default(false);
             $table->foreign('to_User_id')
                 ->references('id')
                 ->on('users');

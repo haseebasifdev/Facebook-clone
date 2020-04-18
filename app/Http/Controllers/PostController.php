@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comments;
 use App\Likes;
+use App\Notification;
 use App\User;
 use App\Post;
 use Illuminate\Http\Request;
@@ -18,11 +19,7 @@ class PostController extends Controller
     {
         return $this->hasMany(Comments::class);
     }
-    public function show(Post $post)
-    {
-        // dd($post->body);
-        return view('posts.show', compact('post'));
-    }
+    
     public function index()
     {
         // $id = auth()->user()->id;

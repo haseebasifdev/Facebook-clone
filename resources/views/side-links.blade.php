@@ -21,7 +21,7 @@
     <li class="mb-2 ">
         <a href="/notificatios" class=" side-link"><i class="fas fa-bell mr-2"></i>Notification <sup
                 style="font-size:60%"
-                class=" text-white bg-danger px-1 rounded rounded-circle">{{auth()->user()->notifications()->count()}}</sup></a>
+                class=" text-white bg-danger px-1 rounded rounded-circle">{{auth()->user()->newNotifications()->count()}}</sup></a>
     </li>
     <li class=" mb-2">
         <a href="/" class=" side-link"><i class="fas fa-envelope mr-2"></i>Messages</a>
