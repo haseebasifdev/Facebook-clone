@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Notification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -108,4 +109,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Friendrequests', 'reciever_user_id')->where('sender_user_id', $user->id)->delete();;
     }
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class, 'to_user_id');
+    }
+   
 }

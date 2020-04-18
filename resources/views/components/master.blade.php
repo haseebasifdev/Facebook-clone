@@ -49,7 +49,7 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
-            width: 10%;
+            width: 11%;
         }
 
         li a.side-link {
@@ -124,7 +124,7 @@
         ul.link {
             margin-left: 10%;
         } */
-        
+
     </style>
 </head>
 

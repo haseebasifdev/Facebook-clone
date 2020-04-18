@@ -13,12 +13,15 @@ class PostController extends Controller
     public function likes()
     {
         return $this->hasMany(Likes::class);
-        
     }
     public function comments()
     {
         return $this->hasMany(Comments::class);
-        
+    }
+    public function show(Post $post)
+    {
+        // dd($post->body);
+        return view('posts.show', compact('post'));
     }
     public function index()
     {

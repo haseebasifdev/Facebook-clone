@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
     //Post Controler
     Route::get('/posts', 'PostController@index');
     Route::post('/posts', 'PostController@store');
+    Route::get('/posts/{post}', 'PostController@show');
 
     //friends Request Controller
     Route::get('/friendrequests', 'FriendrequestsController@index');
@@ -51,5 +52,9 @@ Route::middleware('auth')->group(function () {
     // Comments Controller
 
     Route::post('/comments/{post}', 'CommentsController@store');
+
+    // Notification Controller
+
+    Route::get('/notificatios', 'NotificationController@index');
 });
 Auth::routes();

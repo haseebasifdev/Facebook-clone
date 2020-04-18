@@ -34,11 +34,11 @@
                     </div>
                     <div class=" col-md-6 mt-3">
                         {{-- <form action="" method="post"> --}}
-                            {{-- @csrf --}}
-                            <button class="btn btn-light btn-block  text-dark " data-toggle="collapse"
-                                data-target="#collapsepost{{$post->id}}" aria-expanded="false"
-                                aria-controls="collapsepost{{$post->id}}"><i class="far fa-comment-alt mr-1"></i>Comment
-                                <span>{{$post->comments()->count()}}</span></button>
+                        {{-- @csrf --}}
+                        <button class="btn btn-light btn-block  text-dark " data-toggle="collapse"
+                            data-target="#collapsepost{{$post->id}}" aria-expanded="false"
+                            aria-controls="collapsepost{{$post->id}}"><i class="far fa-comment-alt mr-1"></i>Comment
+                            <span>{{$post->comments()->count()}}</span></button>
                         {{-- </form> --}}
                     </div>
 
@@ -48,5 +48,7 @@
         </div>
         @endforeach
     </div>
-
+    <script>
+        
+    </script>
 </x-app>
