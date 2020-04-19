@@ -19,7 +19,7 @@ class PostController extends Controller
     {
         return $this->hasMany(Comments::class);
     }
-    
+
     public function index()
     {
         // $id = auth()->user()->id;

@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                <a class="nav-link d-block text-bold" href="/profiles/{{auth()->user()->id}}">
+                    <a class="nav-link d-block text-bold" href="/profiles/{{auth()->user()->id}}">
                         <img src="{{auth()->user()->avatar}}" class=" rounded-circle" width="25px" height="25px" alt=""
                             srcset="">
 
@@ -36,6 +36,10 @@
 
                 <li class="nav-item">
                     <a class="nav-link " href="#"><i class="fab fa-facebook-messenger"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/notificatios"><i class="fas fa-bell"></i><sup style="font-size:50%"
+                            class=" text-white bg-danger px-1 rounded rounded-circle">{{auth()->user()->newNotifications()->count()}}</sup></a>
                 </li>
             </ul>
         </div>

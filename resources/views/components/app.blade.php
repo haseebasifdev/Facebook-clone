@@ -88,8 +88,8 @@
         <x-master>
             <div class="row container-fluid " style="margin-top:5%">
                 <div class="col-md-2 col-sm-3 col-4">@include('side-links') </div>
-                <div class="col-md-6 col-sm-6 col-4">{{$slot}}</div>
-                <div class="col-md-2 col-sm-6 col-4"></div>
+                <div class="col-md-5 col-sm-6 col-4">{{$slot}}</div>
+                <div class="col-md-3 col-sm-6 col-4"></div>
                 <div class="col-md-2 col-sm-3 col-4">@include('friends-list')</div>
             </div>
 
